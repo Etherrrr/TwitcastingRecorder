@@ -1,0 +1,6 @@
+#!/bin/sh
+cp /root/TwitcastingRecorder/tcrec.service /lib/systemd/system/tcrec.service
+chmod +x /lib/systemd/system/tcrec.service
+systemctl enable /lib/systemd/system/tcrec.service
+systemctl start /lib/systemd/system/tcrec.service
+echo "Cofiguration finished!"
