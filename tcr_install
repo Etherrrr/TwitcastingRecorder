@@ -2,7 +2,7 @@
 apt-get update
 apt-get install curl ffmpeg
 cp /root/TwitcastingRecorder/tcrec.service /lib/systemd/system/tcrec.service
-chmod +x /lib/systemd/system/tcrec.service
+chmod +x /root/TwitcastingRecorder/tcrecorder.sh
 systemctl enable /lib/systemd/system/tcrec.service
 systemctl start tcrec.service
 echo "Cofiguration finished!"
