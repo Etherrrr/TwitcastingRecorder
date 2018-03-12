@@ -1,0 +1,12 @@
+[Unit]
+Description=Twitcasting Recorder by shellus
+After=network-online.target
+Requires=network-online.target
+
+[Service]
+ExecStart=/root/TwitcastingRecorder/tcrecorder.sh rrreol
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
+Alias=tcrec.service
