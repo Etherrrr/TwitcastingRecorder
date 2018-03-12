@@ -8,5 +8,4 @@ ExecStart=/root/TwitcastingRecorder/tcrecorder.sh rrreol
 KillMode=process
 
 [Install]
-WantedBy=multi-user.target
 Alias=tcrec.service
