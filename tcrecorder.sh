@@ -20,6 +20,8 @@ do
 		ffmpeg -i $tar_url $output_dir/$filename$(date "+%Y%m%d-%H:%M:%S").$output_format
 		echo -n `date "+[%Y-%m-%d %H:%M:%S]"`
 		echo " Recording finished!"
+		echo -n `date "+[%Y-%m-%d %H:%M:%S]"` >> /root/tc/$user/record.log
+		echo " Recorded." >> /root/tc/$user/record.log
 	else
 		echo -n `date "+[%Y-%m-%d %H:%M:%S]"`
 		echo " Not casting!"
