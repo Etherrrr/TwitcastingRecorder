@@ -1,6 +1,5 @@
 #!/bin/sh
 user=$1
-current=`date "+[%Y-%m-%d %H:%M:%S]"`
 tar_url=`curl -s https://twitcasting.tv/$1/metastream.m3u8 | grep ts-220.m3u8`
 filename=$user$(echo -n "_")
 output_format=ts
@@ -17,11 +16,12 @@ do
 	if [ $? -eq 0 ]; then
 		echo -n `date "+[%Y-%m-%d %H:%M:%S]"`
 		echo " Casting! Start to record!"
-		ffmpeg -i $tar_url $output_dir/$filename$(date "+%Y%m%d-%H:%M:%S").$output_format
+		ffmpeg -r 60 -i $tar_url $output_dir/$filename$(date "+%Y%m%d-%H:%M:%S").$output_format
 		echo -n `date "+[%Y-%m-%d %H:%M:%S]"`
 		echo " Recording finished!"
 		echo -n `date "+[%Y-%m-%d %H:%M:%S]"` >> /root/TwitcastingRecorder/rec/$user/record.log
 		echo " Recorded." >> /root/TwitcastingRecorder/rec/$user/record.log
+		sleep 30
 	else
 		echo -n `date "+[%Y-%m-%d %H:%M:%S]"`
 		echo " Not casting!"
